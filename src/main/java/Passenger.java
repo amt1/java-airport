@@ -6,7 +6,7 @@ public class Passenger {
     private String name;
     private HashMap<BaggageType, Integer> baggageTally;
     private ArrayList<Baggage> baggageItems;
-    // private Ticket ticket;
+    private Ticket ticket;
 
     public Passenger(String name) {
         this.name = name;
@@ -56,5 +56,12 @@ public class Passenger {
 
     public int countBaggage(){
         return baggageItems.size();
+    }
+
+    public void addTicket(Ticket ticket){
+        this.ticket = ticket;
+    }
+    public Ticket checkTicket(){
+        return this.ticket;
     }
 }

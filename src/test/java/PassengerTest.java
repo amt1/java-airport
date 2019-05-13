@@ -11,6 +11,7 @@ public class PassengerTest {
     Baggage baggage3;
     Baggage baggage4;
     Baggage baggage5;
+    Ticket ticket;
 
 
 
@@ -22,6 +23,7 @@ public class PassengerTest {
         baggage3 = new Baggage("Car seat", BaggageType.CHILD_CAR_SEAT);
         baggage4 = new Baggage("Blue Suitcase", BaggageType.REGULAR_CHECKED);
         baggage5 = new Baggage("Umbrella Stroller", BaggageType.STROLLER);
+        ticket = new Ticket("Freddy", "VS007");
 
 
     }
@@ -51,5 +53,11 @@ public class PassengerTest {
         passenger.addBaggage(baggage4);
         passenger.addBaggage(baggage5);
         passenger.listBaggageTypes();
+    }
+
+    @Test
+    public void canAddTicket(){
+        passenger.addTicket(ticket);
+        assertEquals(ticket, passenger.checkTicket());
     }
 }

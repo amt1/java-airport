@@ -22,7 +22,7 @@ public class FlightTest {
         passenger3 = new Passenger("Rod");
         passenger4 = new Passenger("Bungle");
         passenger5 = new Passenger("Zippy");
-        flight = new Flight("VS007", smallPlane, AirportCode.LAX);
+        flight = new Flight("VS007", smallPlane, AirportCode.LAX, Airline.VS);
     }
 
     @Test
@@ -40,6 +40,10 @@ public class FlightTest {
     }
 
     @Test
+    public void hasAirlineCode() {
+        assertEquals(Airline.VS, flight.getAirlineCode());
+    }
+    @Test
     public void hasDestinationCode() {
         assertEquals(AirportCode.LAX, flight.getDestinationCode());
     }
@@ -53,5 +57,11 @@ public class FlightTest {
     public void canAddPassenger() {
         flight.addPassenger(passenger);
         assertEquals(1, flight.countPassengers());
+    }
+
+    @Test
+    public void canAddPlane() {
+        flight.setPlane(smallPlane);
+        assertEquals( smallPlane, flight.getPlane());
     }
 }
