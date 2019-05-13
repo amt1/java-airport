@@ -50,8 +50,10 @@ public class Airport {
     }
 
     public void sellTicket(Passenger passenger, Flight flight){
-        Ticket ticket = new Ticket(passenger.getName(), flight.getFlightNumber());
-        passenger.addTicket(ticket);
-        flight.addPassenger(passenger);
+        if (flight.getPlane().hasSeatsLeft()) {
+            Ticket ticket = new Ticket(passenger.getName(), flight.getFlightNumber());
+            passenger.addTicket(ticket);
+            flight.addPassenger(passenger);
+        }
     }
 }
